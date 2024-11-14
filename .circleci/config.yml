@@ -19,6 +19,11 @@ jobs:
       - run:
           name: Run tests
           command: npm test -- --watchAll=false
+      - setup_remote_docker:
+          version: 20.10.7
+      - run:
+          name: Build Docker image
+          command: docker build -t my-node-app .    
 
 workflows:
   version: 2
